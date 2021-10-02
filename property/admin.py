@@ -7,8 +7,12 @@ from .models import (
   Category, 
   PropertyReview, 
   PropertyBook)
+  
+from django_summernote.admin import SummernoteModelAdmin
+class PropertyAdmin(SummernoteModelAdmin):  # instead of ModelAdmin
+    summernote_fields = '__all__'
 
-admin.site.register(Property)
+admin.site.register(Property, PropertyAdmin)
 admin.site.register(PropertyImages)
 admin.site.register(Place)
 admin.site.register(Category)
