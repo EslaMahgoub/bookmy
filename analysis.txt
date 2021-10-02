@@ -1,0 +1,55 @@
+Models To be created:
+  Property: 
+    - name
+    - main image
+    - images *
+    - price / day
+    - description
+    - place *
+
+    Rating *: 
+      - room show Rating
+      - add rate [booked]
+      - room -> avg rating 
+
+    Book *:
+      - book a property
+      - check avilability
+
+    - related rooms
+
+  Users
+
+  Blog:
+    - title
+    - tags
+    - image
+    - created at
+    - created by
+    - description
+    - categories
+
+    - comments
+
+  about:
+    - image
+    - what we do
+    - our mission
+    - our goals
+
+
+    - FAQ:
+      - title
+      - description
+  
+  Website:
+    - phone
+    - address
+    - email
+    - name
+    - logo
+    - description
+    - facebook_link
+    - twitter_link
+    - instagram_link
+

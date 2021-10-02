@@ -1,0 +1,17 @@
+- Property:
+  - properties
+  - booking
+  - Rating
+
+- Blog: 
+  - posts
+  - categories
+  - tags
+  - comments
+
+- About:
+  - about
+  - FAQ
+
+- Settings:
+  - Website info
