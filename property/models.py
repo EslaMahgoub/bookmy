@@ -5,6 +5,7 @@ from django.utils.text import slugify
 from django.urls import reverse
 
 class Property(models.Model):
+  owner = models.ForeignKey(User, related_name='property_owner', on_delete=models.CASCADE)
   name = models.CharField(max_length=255)
   image = models.ImageField(upload_to='property/')
   price = models.IntegerField(default=0)
@@ -16,7 +17,7 @@ class Property(models.Model):
 
   def save(self, *args, **kwargs):
     if not self.slug:
-      self.slug = slugify(self.name) + str(self.id)
+      self.slug = slugify(self.name)
     return super(Property, self).save(*args, **kwargs)
 
   def get_absolute_url(self):
@@ -25,6 +26,29 @@ class Property(models.Model):
   def __str__(self):
     return self.name
 
+  def check_avilability(self):
+    all_reservations = self.book_property.all()
+    now = timezone.now().date()
+
+    for reservation in all_reservations:
+      if now > reservation.date_to:
+        return 'Available'
+      elif now > reservation.date_from and now < reservation.date_to:
+        return f'Reserverd until {reservation.date_to}'
+
+    else:
+      return 'Available'
+  
+  def get_avg_rating(self):
+    all_reviews = self.review_property.all()
+    all_rating = 0 
+    if len(all_reviews) > 0:
+      for review in all_reviews:
+        all_rating += review.rate
+      return round(all_rating/len(all_reviews),2)
+    else:
+      return '-'
+    
 class PropertyImages(models.Model):
   property = models.ForeignKey(Property, related_name='property_image', on_delete=models.CASCADE)
   image = models.ImageField(upload_to='propertyimages/')
@@ -78,5 +102,11 @@ class PropertyBook(models.Model):
 
   def __str__(self):
     return str(self.property)
+
+  def reserverd(self):
+    now = timezone.now().date()
+    return now > self.date_from and now < self.date_to
+
+  reserverd.boolean = True
 
 
