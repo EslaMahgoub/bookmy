@@ -19,12 +19,14 @@ from django.conf import settings
 from django.conf.urls.static import static
 
 urlpatterns = [
-    path('admin/', admin.site.urls),
+    path('accounts/', include('django.contrib.auth.urls')),
+    path('accounts/', include('accounts.urls'), name='accounts'),
     path('property/', include('property.urls'), name='property'),
     path('blog/', include('blog.urls'), name='blog'),
     path('about/', include('about.urls'), name='about'),
     path('', include('settings.urls'), name='home'),
     path('summernote/', include('django_summernote.urls')),
+    path('admin/', admin.site.urls),
 ]
 
 urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
