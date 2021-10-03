@@ -6,6 +6,7 @@ class Settings(models.Model):
   logo = models.ImageField(upload_to='settings/')
   phone = models.CharField(max_length=20)
   email = models.EmailField(max_length=255)
+  address = models.CharField(max_length=100)
   description = models.TextField()
   fb_link = models.URLField(max_length=255)
   twitter_link = models.URLField(max_length=255)
