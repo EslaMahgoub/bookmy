@@ -57,6 +57,9 @@ class PropertyReview(models.Model):
   def __str__(self):
     return str(self.property)
 
+  class Meta:
+    ordering = ['created_at']
+
 
 COUNT = [
     (1, 1),
@@ -69,8 +72,8 @@ class PropertyBook(models.Model):
   property = models.ForeignKey(Property, related_name='book_property', on_delete=models.CASCADE)
   date_from = models.DateField(default=timezone.now)
   date_to = models.DateField(default=timezone.now)
-  guest = models.IntegerField(choices=COUNT, max_length=2)
-  children = models.IntegerField(choices=COUNT, max_length=2)
+  guest = models.IntegerField(choices=COUNT)
+  children = models.IntegerField(choices=COUNT)
 
   def __str__(self):
     return str(self.property)
