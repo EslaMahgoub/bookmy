@@ -1,9 +1,9 @@
 from django.db import models
 
 class About(models.Model):
-  what_we_do = models.CharField(max_length=1000)
-  our_mission = models.CharField(max_length=1000)
-  our_goals = models.CharField(max_length=1000)
+  what_we_do = models.TextField(max_length=1000)
+  our_mission = models.TextField(max_length=1000)
+  our_goal = models.TextField(max_length=1000)
   image = models.ImageField(upload_to='about/')
 
 
