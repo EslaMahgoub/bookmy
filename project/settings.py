@@ -47,6 +47,13 @@ INSTALLED_APPS = [
     'django_summernote',
     'bootstrap4',
     'django_filters',
+    'rest_framework',
+    'rest_framework.authtoken',
+    'dj_rest_auth',
+    'django.contrib.sites',
+    'allauth',
+    'allauth.account',
+    'dj_rest_auth.registration',
 
     # Our Apps
     'blog',
@@ -54,6 +61,8 @@ INSTALLED_APPS = [
     'about',
     'settings',
 ]
+
+SITE_ID = 1
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
