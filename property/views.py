@@ -15,7 +15,6 @@ class PropertyList(FilterView):
   paginate_by = 4
   filterset_class = PropertyFilter
   template_name = 'property/property_list.html'
-
   
 class PropertyDetail(FormMixin, DetailView):
   model = Property
@@ -36,7 +35,7 @@ class PropertyDetail(FormMixin, DetailView):
       new_form.property = self.get_object()
       new_form.user = request.user
       new_form.save()
-      messages.success(request, 'Your Reservation Confirmed ')
+      messages.success(request, 'Your Reservation Confirmed')
     
     return redirect(reverse('property:property_detail' , kwargs={'slug':self.get_object().slug}))
 
@@ -44,7 +43,6 @@ class PropertyDetail(FormMixin, DetailView):
 class PropertyCreate(CreateView):
     model = Property
     fields = ['name','description','price','place','image', 'category']
-
 
     def post(self, request, *args, **kwargs):
         form = self.get_form()
