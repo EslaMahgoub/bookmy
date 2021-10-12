@@ -54,6 +54,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'dj_rest_auth.registration',
+    'coverage',
 
     # Our Apps
     'blog',
@@ -61,6 +62,12 @@ INSTALLED_APPS = [
     'about',
     'settings',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',
+    ]
+}
 
 SITE_ID = 1
 

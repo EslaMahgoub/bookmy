@@ -45,10 +45,10 @@
           <li class="nav-item"><a href="{% url 'property:property_list' %}" class="nav-link">Properties</a></li>
           <li class="nav-item"><a href="{% url 'blog:post_list' %}" class="nav-link">Blog</a></li>
           <li class="nav-item"><a href="{% url 'settings:contact_us' %}" class="nav-link">Contact</a></li>
-          <li class="nav-item cta"><a href="#" class="nav-link"><span>Add listing</span></a></li>
 
           {% if user.is_authenticated %}  
           <li class="nav-item cta"><a href="{% url 'accounts:profile' %}" class="nav-link">Profile</a></li>
+          <li class="nav-item cta"><a href="{% url 'property:property_create' %}" class="nav-link"><span>Add Listing</span></a></li>
           <li class="nav-item cta"><a href="{% url 'logout' %}" class="nav-link"><span>Logout</span></a></li>
           {% else  %}
           <li class="nav-item cta"><a href="{% url 'login' %}" class="nav-link"><span>Login</span></a></li>

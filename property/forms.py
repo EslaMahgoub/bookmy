@@ -8,3 +8,9 @@ class PropertyBookForm(forms.ModelForm):
   class Meta:
     model = PropertyBook
     fields = ['date_from', 'date_to', 'guest', 'children']
+
+
+
+# class RoomReviewForm(forms.ModelForm):
+#   class Meta:
+#     model = RoomReview
